@@ -1,12 +1,15 @@
 import TaskFormModal from "../TaskFormModal";
 import WeekDayHeader from "./weekDayHeader";
+import { ContextModalProvider } from "../ContextProviderModal";
 
 export default function WeekDayCards () {
     return(
         weekDays.map((day) => (
             <section className="md:px-3">
-                <TaskFormModal />
-                <WeekDayHeader day={day}/>
+                <ContextModalProvider>
+                    <TaskFormModal />
+                    <WeekDayHeader day={day}/>
+                </ContextModalProvider>
             </section>
         ))
     )

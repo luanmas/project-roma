@@ -1,6 +1,6 @@
 import TaskFormModal from "../TaskFormModal";
 import WeekDayHeader from "./weekDayHeader";
-import { ContextModalProvider } from "../ContextProviderModal";
+import { ContextModalProvider } from "../../hook/ContextProviderModal";
 
 export default function WeekDayCards () {
     return(

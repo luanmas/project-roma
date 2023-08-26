@@ -1,5 +1,4 @@
 import WeekDayHeader from "./weekDayHeader";
-import { ContextModalProvider } from "../../hook/ContextProviderModal";
 
 export default function WeekDayCards () {
     return(

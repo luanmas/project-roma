@@ -1,13 +1,13 @@
 'use client'
 
-import { useModalForm } from "../../hook/ContextProviderModal"
+import { useModalForm } from "../../hook/useModalForm"
 
 type WeekDayHeaderProps = {
     day : string;
 }
 
 export default function WeekDayHeader ({day} : WeekDayHeaderProps) {
-    const { routine } = useModalForm();
+    const { setOpenModalForm } = useModalForm();
 
     // console.log(routine);
 
@@ -15,7 +15,7 @@ export default function WeekDayHeader ({day} : WeekDayHeaderProps) {
         <div className="flex flex-col">
             <section className="flex md:justify-between md:py-2">
                 <h3>{day}</h3>
-                <button className="bg-slate-300 md:px-2 font-bold rounded">
+                <button onClick={() => setOpenModalForm(true)} className="bg-slate-300 md:px-2 font-bold rounded">
                     +
                 </button>
                 

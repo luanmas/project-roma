@@ -1,7 +1,7 @@
 'use client';
 
 import { api } from "@/service/api";
-import { createContext , ReactNode , useEffect } from "react";
+import { createContext , ReactNode , useEffect , SetStateAction } from "react";
 import { useState , useContext } from 'react';
 
 type ContextModalProviderProps = {
@@ -19,20 +19,21 @@ type routineInputProps = {
     description : string;
 }
 
-type routineWeekProviderProps = {
+type ContextProviderProps = {
     routine : routineProps[];
     createRoutine : (routine: routineInputProps) => Promise<void>;
+    openModalForm : boolean;
+    setOpenModalForm : React.Dispatch<SetStateAction<boolean>>;
+    OnSubmit : () => void;
 }
 
 
-const ContextModal = createContext<routineWeekProviderProps>({} as routineWeekProviderProps);
+const ContextModal = createContext<ContextProviderProps>({} as ContextProviderProps);
 
 export function ContextModalProvider ({children} : ContextModalProviderProps) {
 
-    // const [title , setTitle] = useState("");
-    // const [desc , setDesc] = useState("");
-
     const [routine , setRoutine] = useState<routineProps[]>([]);
+    const [openModalForm , setOpenModalForm] = useState(false);
 
     useEffect(() => {
         api.get('weekRoutine')
@@ -55,8 +56,22 @@ export function ContextModalProvider ({children} : ContextModalProviderProps) {
         ])
     }
 
+    function OnSubmit (){
+      setOpenModalForm(false);
+    }
+
     return (
-        <ContextModal.Provider value={{routine , createRoutine}}>
+        <ContextModal.Provider 
+            value={
+                    {
+                        routine ,
+                        createRoutine ,
+                        OnSubmit ,
+                        openModalForm ,
+                        setOpenModalForm
+                    }
+                }
+            >
             {children}
         </ContextModal.Provider>
     )

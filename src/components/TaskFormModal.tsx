@@ -1,7 +1,7 @@
 'use client'
 
 import ReactModal from 'react-modal';
-import { useModalForm } from '../hook/ContextProviderModal';
+import { SetStateAction } from 'react';
 import { useForm } from 'react-hook-form';
 
 type FormDataProps = {
@@ -9,14 +9,15 @@ type FormDataProps = {
     description : string;
 }
 
-export default function TaskFormModal () {
-    const { openModalForm , setOpenModalForm , } = useModalForm();
+type ModalFormsProps = {
+    openModalForm : boolean;
+    setOpenModalForm : React.Dispatch<SetStateAction<boolean>>;
+    OnSubmit : () => void;
+}
+
+export default function TaskFormModal ({ openModalForm , setOpenModalForm , OnSubmit  } : ModalFormsProps) {
     const form = useForm<FormDataProps>();
     const { register , handleSubmit } = form;
-
-    async function OnSubmit (data : FormDataProps){
-        setOpenModalForm(false);
-    }
 
     return (
         <ReactModal 

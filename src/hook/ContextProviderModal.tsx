@@ -29,9 +29,6 @@ const ContextModal = createContext<routineWeekProviderProps>({} as routineWeekPr
 
 export function ContextModalProvider ({children} : ContextModalProviderProps) {
 
-
-    // const [openModalForm , setOpenModalForm] = useState(false);
-
     // const [title , setTitle] = useState("");
     // const [desc , setDesc] = useState("");
 

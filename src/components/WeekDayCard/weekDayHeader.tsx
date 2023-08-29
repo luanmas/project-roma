@@ -1,15 +1,13 @@
 'use client'
 
-import { useModalForm } from "../../hook/useModalForm"
+import { useFormModalStore } from "@/store/FormModal";
 
 type WeekDayHeaderProps = {
     day : string;
 }
 
 export default function WeekDayHeader ({day} : WeekDayHeaderProps) {
-    const { setOpenModalForm } = useModalForm();
-
-    // console.log(routine);
+    const { setOpenModalForm } = useFormModalStore();
 
     return (
         <div className="flex flex-col">

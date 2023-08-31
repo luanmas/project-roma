@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Model , createServer } from 'miragejs';
-import Provider from '@/Context/Provider';
 
 createServer({
     models: {
@@ -54,11 +53,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Provider>
         <body className={`${inter.className} md:h-screen md:w-screen flex md:justify-center md:items-center`}>
           {children}
         </body>
-      </Provider>
     </html>
   )
 }

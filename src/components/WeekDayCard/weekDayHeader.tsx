@@ -1,12 +1,21 @@
 'use client'
 
 import { useFormModalStore } from "@/store/FormModal";
+import TaskModalDetails from "../TaskDetailsModal";
+import ContentWeekDay from "./contentWeekDay";
+
+type task = {
+    title : string;
+    description : string;
+    id : number;
+}
 
 type WeekDayHeaderProps = {
     day : string;
+    tasks : task[];
 }
 
-export default function WeekDayHeader ({day} : WeekDayHeaderProps) {
+export default function WeekDayHeader ({day , tasks} : WeekDayHeaderProps) {
     const { setOpenModalForm } = useFormModalStore();
 
     return (
@@ -16,7 +25,7 @@ export default function WeekDayHeader ({day} : WeekDayHeaderProps) {
                 <button onClick={() => setOpenModalForm(true)} className="bg-slate-300 md:px-2 font-bold rounded">
                     +
                 </button>
-                
+                <ContentWeekDay tasks={tasks}/>
             </section>
         </div> 
     )

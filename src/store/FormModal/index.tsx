@@ -11,8 +11,3 @@ export const useFormModalStore = create<StoreProps>((set) => ({
     setOpenModalForm: (newState) => set(() => ({ openModalForm : newState })),
     OnSubmit : () => () => set(() => ({openModalForm : false}))
 }));
-
-
-//function OnSubmit (){
-//    setOpenModalForm(false);
-//}

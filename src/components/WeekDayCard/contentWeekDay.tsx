@@ -1,15 +1,26 @@
+import TaskModalDetails from "../TaskDetailsModal";
+import { useTaskModalDetails } from "@/store/FormModal/ModalTaskDetails";
 
-type ContentWeekDayProps = {
+type taskProps = {
     title : string;
     description : string;
+    id : number;
 }
 
-export default function ContentWeekDay ({title , description} : ContentWeekDayProps) {
+type tasksArray = {
+    tasks : taskProps[]
+}
+
+export default function ContentWeekDay ({tasks} : tasksArray) {
+    const { setOpenTaskModalDetails } = useTaskModalDetails();
+
     return(
         <div className="bg-slate-200 rounded overflow-hidden">
-            <h4 className="pl-1">{title}</h4>
-            <p>{description}</p>
-            {/* <button className="bg-slate-300 font-semibold py-1 w-full">See details</button> */}
+            {tasks.map((task) => (
+                <h4>{task.title}</h4>
+            ))}
+            <button onClick={() => setOpenTaskModalDetails(true)} className="bg-slate-300 font-semibold py-1 w-full">See details</button>
+            <TaskModalDetails tasks={tasks}/>
         </div>
     )
 }

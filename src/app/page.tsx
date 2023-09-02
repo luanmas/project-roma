@@ -1,8 +1,7 @@
 'use client';
 
-import TaskFormModal from "@/components/TaskFormModal";
+import TaskFormModal from "@/components/TaskFormModal/index";
 import WeekDayCard from "@/components/WeekDayCard";
-import { useState } from 'react';
 
 export default function Home() {
 

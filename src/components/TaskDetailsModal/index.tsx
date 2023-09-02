@@ -1,7 +1,7 @@
 'use client'
 
 import ReactModal from 'react-modal';
-import { useTaskModalDetails } from '@/store/FormModal/ModalTaskDetails';
+import { useTaskModalDetails } from '@/store/ModalTaskDetails/ModalTaskDetails/index';
 
 type taskProps = {
     title : string;

@@ -2,8 +2,7 @@
 
 import ReactModal from 'react-modal';
 import { useForm } from 'react-hook-form';
-// import { useModalForm } from '@/hook/useModalForm';
-import { useFormModalStore  } from '@/store/FormModal/index';
+import { useFormModalStore  } from '@/store/ModalTaskDetails/FormModal';
 
 type FormDataProps = {
     title : string;
@@ -15,7 +14,6 @@ export default function TaskFormModal () {
     const form = useForm<FormDataProps>();
     const { register , handleSubmit } = form;
 
-    // const { openModalForm , setOpenModalForm , OnSubmit } = useModalForm();
     const { openModalForm , setOpenModalForm , OnSubmit} = useFormModalStore(); 
 
     type stateForm = {

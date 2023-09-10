@@ -1,6 +1,5 @@
 'use client';
 
-import TaskFormModal from "@/components/TaskFormModal/index";
 import WeekDayCard from "@/components/WeekDayCard";
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
       <h2 className="font-bold md:text-5xl py-3 pl-3">Manager Routine</h2>
       <section className="grid grid-cols-7 grid-rows-1 ">
         <WeekDayCard />
-        <TaskFormModal/>
       </section>
     </main>
   )

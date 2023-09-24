@@ -16,10 +16,6 @@ export default function TaskFormModal () {
 
     const { openModalForm , setOpenModalForm , OnSubmit} = useFormModalStore(); 
 
-    type stateForm = {
-        state : boolean;
-    }
-
     return (
         <ReactModal 
             isOpen={openModalForm}
@@ -28,7 +24,10 @@ export default function TaskFormModal () {
             ariaHideApp={false}
             className={"absolute top-0 left-0 w-screen h-screen bg-slate-700/50 flex justify-center items-center"}
         >
-            <form className='flex flex-col relative bg-slate-200 px-2 py-5 space-y-6 md:w-2/5 md:h-auto rounded' onSubmit={handleSubmit(OnSubmit)}>
+            <form 
+                className='flex flex-col relative bg-slate-200 px-2 py-5 space-y-6 md:w-2/5 md:h-auto rounded' 
+                onSubmit={handleSubmit(OnSubmit)}
+            >
                 <h2 className='flex justify-center md:text-3xl font-bold'>Create a Task 📚</h2>
                 <div className='absolute top-0 right-0 px-2'>
                     <button onClick={() => setOpenModalForm(false)}>
@@ -55,5 +54,3 @@ export default function TaskFormModal () {
         </ReactModal>
     )
 }
-
-// future features : reack hook form + zod
